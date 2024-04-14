@@ -12,37 +12,37 @@ import './FormForChooseIcon.css';
 
 type FormForChooseIconProps = {
   formData: FormData;
-  handleIconColorChange: (value: string) => void;
-  handleFormVisibility: (value: boolean) => void;
-  handleIconSizeChange: (value: number) => void;
-  handleIconTypeChange: (value: string) => void;
-  handleSubmitForm: (value: {}) => void;
+  onIconColorChange: (value: string) => void;
+  onFormVisibility: (value: boolean) => void;
+  onIconSizeChange: (value: number) => void;
+  onIconTypeChange: (value: string) => void;
+  onSubmitForm: (value: {}) => void;
   leftPosition: string;
   topPosition: string;
 };
 
 const FormForChooseIcon: FC<FormForChooseIconProps> = ({
   formData,
-  handleIconColorChange,
-  handleFormVisibility,
-  handleIconSizeChange,
-  handleIconTypeChange,
-  handleSubmitForm,
+  onIconColorChange,
+  onFormVisibility,
+  onIconSizeChange,
+  onIconTypeChange,
+  onSubmitForm,
   leftPosition,
   topPosition,
 }) => {
   const handleButtonCancelClick = (event: FormEvent) => {
     event.preventDefault();
 
-    handleFormVisibility(false);
+    onFormVisibility(false);
   };
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     formData.leftPosition = leftPosition;
     formData.topPosition = topPosition;
-    handleFormVisibility(false);
-    handleSubmitForm(formData);
+    onFormVisibility(false);
+    onSubmitForm(formData);
   };
 
   return (
@@ -51,9 +51,9 @@ const FormForChooseIcon: FC<FormForChooseIconProps> = ({
       style={{ left: leftPosition, top: topPosition }}
       onSubmit={handleSubmit}
     >
-      <ColorPicker color={formData.color} handleIconColorChange={handleIconColorChange} />
-      <FontSizePicker iconSize={formData.iconSize} handleIconSizeChange={handleIconSizeChange} />
-      <IconPicker handleIconTypeChange={handleIconTypeChange} />
+      <ColorPicker color={formData.color} onIconColorChange={onIconColorChange} />
+      <FontSizePicker iconSize={formData.iconSize} onIconSizeChange={onIconSizeChange} />
+      <IconPicker onIconTypeChange={onIconTypeChange} />
       <div className={cnFormForChooseIcon('ButtonsContainer')}>
         <button className={cnFormForChooseIcon('AddButton')}>Добавить</button>
         <button className={cnFormForChooseIcon('CancelButton')} onClick={handleButtonCancelClick}>
