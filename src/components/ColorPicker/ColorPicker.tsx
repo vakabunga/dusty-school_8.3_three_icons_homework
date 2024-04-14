@@ -7,16 +7,17 @@ import './ColorPicker.css';
 
 type ColorPickerProps = {
   color: string;
-  handleIconColorChange: (value: string) => void;
+  onIconColorChange: (value: string) => void;
 };
 
-const ColorPicker: FC<ColorPickerProps> = ({ color, handleIconColorChange }) => {
-
+const ColorPicker: FC<ColorPickerProps> = ({ color, onIconColorChange }) => {
   const handleColorChange = (event: ChangeEvent<HTMLInputElement>) => {
-    handleIconColorChange(event.target.value);
-  }
+    onIconColorChange(event.target.value);
+  };
 
-  return <input className={cnColorPicker()} type="color" value={color} onChange={handleColorChange}/>;
+  return (
+    <input className={cnColorPicker()} type="color" value={color} onChange={handleColorChange} />
+  );
 };
 
 export { ColorPicker };

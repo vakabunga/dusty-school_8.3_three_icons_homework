@@ -14,12 +14,12 @@ const iconPickerStyle = {
 
 type IconPickerProps = {
   iconType?: string;
-  handleIconTypeChange: (value: string) => void;
+  onIconTypeChange: (value: string) => void;
 };
 
-const IconPicker: FC<IconPickerProps> = ({ handleIconTypeChange }) => {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    handleIconTypeChange(event.target.value);
+const IconPicker: FC<IconPickerProps> = ({ onIconTypeChange }) => {
+  const handleIconTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onIconTypeChange(event.target.value);
   };
 
   return (
@@ -32,7 +32,7 @@ const IconPicker: FC<IconPickerProps> = ({ handleIconTypeChange }) => {
             name="icon"
             value={icon}
             id={index.toString()}
-            onChange={handleChange}
+            onChange={handleIconTypeChange}
           />
           <label className={cnIconPicker('IconLabel')} htmlFor={index.toString()}>
             <Icon

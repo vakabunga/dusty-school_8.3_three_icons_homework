@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import type { FormEvent, MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 
 import { cnApp } from './App.classname';
 import { BoardForIcons } from './components/BoardForIcons/BoardForIcons';
 import { FormForChooseIcon } from './components/FormForChooseIcon/FormForChooseIcon';
-import { Icon } from './components/Icon/Icon';
 
 type FromPosition = {
   left: string;
@@ -81,11 +80,11 @@ const App = () => {
         <FormForChooseIcon
           leftPosition={formPosition.left}
           topPosition={formPosition.top}
-          handleIconColorChange={handleIconColorChange}
-          handleFormVisibility={handleFormVisibility}
-          handleIconSizeChange={handleIconSizeChange}
-          handleIconTypeChange={handleIconTypeChange}
-          handleSubmitForm={handleSubmit}
+          onIconColorChange={handleIconColorChange}
+          onFormVisibility={handleFormVisibility}
+          onIconSizeChange={handleIconSizeChange}
+          onIconTypeChange={handleIconTypeChange}
+          onSubmitForm={handleSubmit}
           formData={formData}
         />
       )}

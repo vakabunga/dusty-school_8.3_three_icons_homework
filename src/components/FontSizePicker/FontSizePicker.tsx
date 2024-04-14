@@ -5,21 +5,21 @@ import { cnFontSizePicker } from './FontSizePicker.classname';
 
 import './FontSizePicker.css';
 
-type handleIconSizeChange = {
+type handleIconSizeChangeProps = {
   iconSize: number;
-  handleIconSizeChange: (value: number) => void;
+  onIconSizeChange: (value: number) => void;
 }
 
-const FontSizePicker: FC<handleIconSizeChange> = ({iconSize, handleIconSizeChange}) => {
+const FontSizePicker: FC<handleIconSizeChangeProps> = ({iconSize, onIconSizeChange}) => {
 
-  const handleSizeChange = (event: ChangeEvent<HTMLInputElement>) => {
-    handleIconSizeChange(Number(event.target.value));
+  const handleIconSizeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onIconSizeChange(Number(event.target.value));
   }
 
   return (
     <div className={cnFontSizePicker()}>
       <label className={cnFontSizePicker('Label')} htmlFor="textSize">Размер иконки</label>
-      <input type="number" id="textSize" name="textSize" value={iconSize} onChange={handleSizeChange}/>
+      <input type="number" id="textSize" name="textSize" value={iconSize} onChange={handleIconSizeChange}/>
     </div>
   );
 };
