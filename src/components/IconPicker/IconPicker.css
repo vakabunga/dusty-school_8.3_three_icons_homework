@@ -1,0 +1,28 @@
+.IconPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  padding: 10px;
+
+  overflow-y: scroll;
+
+  height: 200px;
+}
+
+.IconPicker-IconLabel {
+  border: 1px solid #f8f8f8;
+}
+
+.IconPicker-IconLabel:hover {
+  border: 1px solid #555;
+}
+
+.IconPicker input[type="radio"]:checked+label {
+  border: 1px solid #a6f;
+
+}
+
+.IconPicker-IconInput {
+  display: none;
+}
